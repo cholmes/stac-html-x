@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="author" content="">
-    <meta name="google-site-verification" content="PmJLwJHYDYWWI6vGS-Al2bLLsjYemgdoIGF5yx9HzTk">
-    <link rel="shortcut icon" href="https://aws.amazon.com/favicon.ico">
+    <meta name="google-site-verification" content="PmJLwJHYDYWWI6vGS-Al2bLLsjYemgdoIGF5yx9HzTk" />
+    <link rel="shortcut icon" href="//aws.amazon.com/favicon.ico">
   
     <title>Landsat on AWS - LC08_L1TP_022034_20170908_20170908_01_RT</title>
   
-    <!-- Bootstrap core CSS -->
-
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.4/build/ol.js"></script>
+
+    <!-- Bootstrap core CSS -->
   
-    <link href="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <!-- <link href="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/css/jumbotron-narrow.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/styles.css">
+    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/css/styles.css">
   
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -34,8 +35,8 @@
   <body>
     <div class="container col-xs-12 col-md-8 col-md-offset-2">
       <header>
-        <a href="http://aws.amazon.com/what-is-cloud-computing"><img src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/375px-AWS_Logo_Web-Black.png" alt="Powered by AWS Cloud Computing" class="pull-right" id="aws_header_logo"></a>
-        <p><a href="https://landsatonaws.com/">Landsat on AWS</a> / <a href="https://landsatonaws.com/L8">L8</a> / <a href="https://landsatonaws.com/L8/022">022</a> / <a href="https://landsatonaws.com/L8/022/034">034</a></p>
+        <a href="http://aws.amazon.com/what-is-cloud-computing"><img src="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/img/375px-AWS_Logo_Web-Black.png" alt="Powered by AWS Cloud Computing" class="pull-right" id="aws_header_logo"></a>
+        <p><a href="/">Landsat on AWS</a> / <a href="/L8">L8</a> / <a href="/L8/022">022</a> / <a href="/L8/022/034">034</a></p>
         <h1>LC08_L1TP_022034_20170908_20170908_01_RT</h1>
         <p>
           Endpoint: <code>s3://landsat-pds/c1/L8/022/034/LC08_L1TP_022034_20170908_20170908_01_RT/</code>
@@ -46,7 +47,7 @@
 
       <div class="col-md-7">
         <h2>True Color Preview</h2>
-        <div style:width="300"><div id="map" class="map"></div></div>
+        <div id="map" class="map" style="width: 100%; height: 550px; border: 1px solid #ccc;"></div>
         <!--img src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/LC08_L1TP_022034_20170908_20170908_01_RT_thumb_large.jpg" class="img-responsive"-->
         <p>Image courtesy of the U.S. Geological Survey</p>
         <p>Image acquired at Fri Sep 08 2017<br>
@@ -105,23 +106,22 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/js/ie10-viewport-bug-workaround.js"></script>
     <script>
       var map = new ol.Map({
         target: 'map',
         layers: [
           new ol.layer.Tile({
             source: new ol.source.XYZ({
-              url: 'https://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+              url: 'https://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
             })
           })
         ],
         view: new ol.View({
-          center: [-472202, 7530279],
-          zoom: 12
+          center: ol.proj.transform([-88.10678, 37.47465], 'EPSG:4326', 'EPSG:3857'),
+          zoom: 8
         })
       });
     </script>
-  
-
-</div></body></html>
+  </body>
+</html>
