@@ -12,6 +12,11 @@
     <title>Landsat on AWS - LC08_L1TP_022034_20170908_20170908_01_RT</title>
   
     <!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.4/build/ol.js"></script>
   
     <link href="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/bootstrap.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -41,7 +46,8 @@
 
       <div class="col-md-7">
         <h2>True Color Preview</h2>
-        <img src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/LC08_L1TP_022034_20170908_20170908_01_RT_thumb_large.jpg" class="img-responsive">
+        <div style:width="300"><div id="map" class="map"></div></div>
+        <!--img src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/LC08_L1TP_022034_20170908_20170908_01_RT_thumb_large.jpg" class="img-responsive"-->
         <p>Image courtesy of the U.S. Geological Survey</p>
         <p>Image acquired at Fri Sep 08 2017<br>
         Cloud cover: 0.08%
@@ -100,6 +106,22 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.XYZ({
+              url: 'https://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            })
+          })
+        ],
+        view: new ol.View({
+          center: [-472202, 7530279],
+          zoom: 12
+        })
+      });
+    </script>
   
 
 </div></body></html>
