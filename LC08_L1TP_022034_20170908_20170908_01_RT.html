@@ -115,6 +115,12 @@
             source: new ol.source.XYZ({
               url: 'https://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
             })
+          }),
+          
+          new ol.layer.Tile({
+            source: new ol.source.XYZ({
+              url: 'https://tiles.rasterfoundry.com/ad772815-ca2f-42e1-a26a-7fa49c9ed73d/{z}/{x}/{y}/?tag=1513728677491&mapToken=41cd0c94-f4f8-4fff-9d91-cb8bc0758c14'
+            })
           })
         ],
         view: new ol.View({
