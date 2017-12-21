@@ -33,7 +33,7 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container col-xs-12 col-md-8 col-md-offset-2">
+    <div class="container col-xs-12 col-md-8 col-md-offset-1">
       <header>
         <a href="http://aws.amazon.com/what-is-cloud-computing"><img src="https://s3-us-west-2.amazonaws.com/landsatonaws.com-production-us-west-2/assets/img/375px-AWS_Logo_Web-Black.png" alt="Powered by AWS Cloud Computing" class="pull-right" id="aws_header_logo"></a>
         <p><a href="/">Landsat on AWS</a> / <a href="/L8">L8</a> / <a href="/L8/022">022</a> / <a href="/L8/022/034">034</a></p>
@@ -45,18 +45,61 @@
       <hr>
       <div class="row">
 
-      <div class="col-md-7">
+      <div class="col-md-8">
         <h2>True Color Preview</h2>
         <div id="map" class="map" style="width: 100%; height: 550px; border: 1px solid #ccc;"></div>
         <!--img src="Landsat%20on%20AWS%20-%20LC08_L1TP_022034_20170908_20170908_01_RT_files/LC08_L1TP_022034_20170908_20170908_01_RT_thumb_large.jpg" class="img-responsive"-->
         <p><input type="checkbox" id="labels" name="labels" onClick="toggleControl(this);" checked="true"> Labels</p> 
-        <p>Image courtesy of the U.S. Geological Survey</p>
+        <p>Image courtesy of the </p>
         <p>Image acquired at Fri Sep 08 2017<br>
-        Cloud cover: 0.08%
         </p>
       </div>
+      
+      <div class="table-responsive">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Image Acquisition (start)</td>
+            <td>Fri Sep 08 2017, 16:30:13 UTC</td>
+          </tr>          <tr>
+            <td>Cloud Cover</td>
+            <td>0.08%</td>
+          </tr>
+          <tr>
+            <td>Off Nadir Angle</td>
+            <td>-0.001</td>
+          </tr>
+          <tr>
+            <td>Sun Azimuth</td>
+            <td>145.52091018</td>
+          </tr>
+          <tr>
+            <td>Sun Elevation</td>
+            <td>53.16836239</td>
+          </tr>
+          <tr>
+            <td>Earth Sun Distance</td>
+            <td>1.0141560</td>
+          </tr>
+          <tr>
+            <td>License</td>
+            <td><a href="https://spdx.org/licenses/PDDL-1.0.html">PDDL-1.0</a></td>
+          </tr>
+          <tr>
+            <td>Provider</td>
+            <td><a href="https://landsat.usgs.gov/">U.S. Geological Survey</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <div class="col-md-5">
+      <div class="col-md-4">
         <h2>Files</h2>
         <h3>GeoTIFFs</h3>
         <ul class="scene_files">
