@@ -19,10 +19,10 @@
         <div id="map" class="map" style="width: 100%; height: 100%; border: 1px solid #ccc;"></div>
 
         <p><input type="checkbox" id="labels" name="labels" onClick="toggleControl(this);" checked="true"> Labels</p> 
-        <p> <button onclick="loadCog()">Click me</button> </p>
+        <p> <button onclick="loadCog()">Submit</button> </p>
         <p> <form>
           COG URL:<br>
-          <input type="text" name="cog-url" id="cog-url"><br><input type="submit" value="Submit" onclick="loadCog();">
+          <input type="text" name="cog-url" id="cog-url"><br><!--input type="submit" value="Submit" onclick="loadCog();"-->
         </form> </p>
 
       </div>
@@ -63,7 +63,7 @@
    
         view: new ol.View({
           center: ol.proj.transform([124.97823103726, 10.91685], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 15
+          zoom: 16
         })
       });
 
@@ -77,19 +77,19 @@
         var name = document.getElementById("cog-url").value;
         var url = "http://bstlgagxwg.execute-api.us-east-1.amazonaws.com/production/tiles/{z}/{x}/{y}.png?url=" + name;
         
-        // var cogLayer = new ol.layer.Tile({
-        //    type: 'base',
-        //    source: new ol.source.XYZ({
-        //      url: url
-        //    })
-        //  });
-        //map.addLayer(cogLayer);
-       var boundsUrl="http://bstlgagxwg.execute-api.us-east-1.amazonaws.com/production/bounds?url=" + name;
-       //alert(boundsUrl);
-       $.getJSON("boundsUrl", function(result){
-              $.each(result, function(i, field){
-                  $("div").append(field + " ");
-              });
+         var cogLayer = new ol.layer.Tile({
+            type: 'base',
+            source: new ol.source.XYZ({
+              url: url
+            })
+          });
+        map.addLayer(cogLayer);
+       var boundsUrl="https://bstlgagxwg.execute-api.us-east-1.amazonaws.com/production/bounds?url=" + name;
+       $.getJSON(boundsUrl, function(result){
+                 lon = (result.bounds[0] + result.bounds[2]) / 2;
+                 lat = (result.bounds[1] + result.bounds[3]) / 2;
+                 map.getView().setCenter(ol.proj.fromLonLat([lon, lat]));
+                 
           });
 
         //map.getView().setCenter(ol.proj.fromLonLat([-0.12755, 51.507222]));
