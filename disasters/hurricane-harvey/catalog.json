@@ -5,7 +5,7 @@
   "links": [
     { "rel": "self", "href": "http://cholmes.github.io/stac-html-x/disasters/hurricane-harvey/catalog.json" },
     { "rel": "alternate", "href": "https://cholmes.github.io/stac-html-x/hurricane-harvey.html", "type":"html" },
-    { "rel": "parent", "href": "http://cholmes.github.io/stac-html-x/disasters/catalog.json"}
+    { "rel": "parent", "href": "http://cholmes.github.io/stac-html-x/disasters/catalog.json"},
     { "rel": "child", "href": "0824/catalog.json" },
     { "rel": "child", "href": "0830/catalog.json" },
     { "rel": "child", "href": "0831/catalog.json" },
