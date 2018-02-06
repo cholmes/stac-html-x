@@ -1,8 +1,6 @@
 {
   "name": "NAIP",
-  "description": "Planet Disaster Data makes imagery available directly to the public, volunteers, humanitarian organizations, 
-  and other coordinating bodies in support of the International Charter for Space and Major Disasters. Data is released for individual disaster events, providing a 30 day 
-  window pre- and post-disaster. Imagery is provided under Creative Commons licenses, free of charge, with either CC-BY-SA or CC-BY-NC.",
+  "description": "Planet Disaster Data makes imagery available directly to the public, volunteers, humanitarian organizations, and other coordinating bodies in support of the International Charter for Space and Major Disasters. Data is released for individual disaster events, providing a 30 day window pre- and post-disaster. Imagery is provided under Creative Commons licenses, free of charge, with either CC-BY-SA or CC-BY-NC.",
 
   "license": {
     "name": "Creative Commons By Share Alike 4.0",
