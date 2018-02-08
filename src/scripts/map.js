@@ -19,7 +19,7 @@ var labels = new TileLayer({
 const map = new Map({
   target: 'map',
   layers: [
- 
+
     new TileLayer({
 
         source: new XYZ({
